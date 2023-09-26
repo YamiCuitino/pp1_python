@@ -1,0 +1,15 @@
+#version de docker compose
+
+version: '3'  #entre las verisones de docker compose puede haber 
+#cambio en la organizacion de las cosas (semanticamente)
+
+services:
+  flask_app: #servicios app
+    build:
+      context: . #lista de params
+      dockerfile: dockerfile
+    ports:
+      - "5005:5005"  #puerto dque expone el contenedor: puerto del host donde escuchamos
+    volumes:
+      - .:/inicio_5_9  # Cambio "-" a "."
+    restart: always
